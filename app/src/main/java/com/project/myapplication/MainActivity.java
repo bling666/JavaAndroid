@@ -11,10 +11,19 @@ public class MainActivity extends AppCompatActivity {
     private Button MBUTTON;
     private  Button edit;
     private  Button search;
+    private Button upload;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        upload=(Button) findViewById(R.id.btup);
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                android.content.Intent intent = new android.content.Intent(MainActivity.this,uploadActivity.class);
+                startActivity(intent);
+            }
+        });
         MBUTTON=(Button) findViewById(R.id.button);
         MBUTTON.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
