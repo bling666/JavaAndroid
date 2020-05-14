@@ -9,23 +9,12 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="搜索单词"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:visibility="visible"
-        android:background="@android:color/transparent"
-        />
 
     <Button
         android:id="@+id/button_edit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="EditText"
-        android:layout_below="@+id/button"/>
+        android:text="EditText"/>
 
     <Button
         android:id="@+id/button2"
