@@ -43,8 +43,8 @@ public class search_activity extends AppCompatActivity {
         BufferedReader reader = null;
         StringBuffer sb = null;
         String result = "";
-        String path="http://39.102.62.210//api/getoneword?keyword=";
-        path=path+s;
+        String path="http://39.102.62.210/";
+        path=path;
         HttpGet request=new HttpGet(path);
         try{
             HttpResponse response=client.execute(request);
