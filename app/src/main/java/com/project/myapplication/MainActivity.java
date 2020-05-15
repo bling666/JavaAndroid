@@ -8,18 +8,28 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button MBUTTON;
+
     private  Button edit;
     private  Button search;
+    private Button upload;
+    private Button rembt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MBUTTON=(Button) findViewById(R.id.button);
-        MBUTTON.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                //跳转到button界面
-                android.content.Intent intent = new android.content.Intent(MainActivity.this,buttonActivity.class);
+        rembt=(Button) findViewById(R.id.rem) ;
+        rembt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                android.content.Intent intent = new android.content.Intent(MainActivity.this,ScrollingActivity.class);
+                startActivity(intent);
+            }
+        });
+        upload=(Button) findViewById(R.id.btup);
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                android.content.Intent intent = new android.content.Intent(MainActivity.this,uploadActivity.class);
                 startActivity(intent);
             }
         });
