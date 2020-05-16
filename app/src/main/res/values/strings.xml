@@ -91,4 +91,9 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_recite">背词</string>
+    <string name="title_search">查词</string>
+    <string name="title_upload">上传</string>
+    <string name="upload_textarea_placeholder">请将您的文本复制粘贴到此处</string>
 </resources>
