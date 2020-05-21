@@ -16,4 +16,10 @@
         android:icon="@drawable/iv3_p"
         android:title="@string/title_search" />
 
+    <item
+        android:id="@+id/navigation_mine"
+        android:icon="@drawable/iv4_p"
+        android:title="@string/mine"
+        />
+
 </menu>

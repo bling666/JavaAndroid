@@ -79,7 +79,6 @@ public class SearchFragment extends Fragment {
                 String res = searchword(getstr);
                 System.out.println(res);
 
-
                 mtv.setText(res);
                 Toast.makeText(getActivity(), "输入成功", Toast.LENGTH_LONG).show();
             }

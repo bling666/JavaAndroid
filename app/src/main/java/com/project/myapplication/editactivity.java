@@ -23,7 +23,7 @@ public class editactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editactivity);
         mtv=(TextView)findViewById(R.id.tv1);
-        mbtnlogin=(Button)findViewById(R.id.btn_login);
+        mbtnlogin=(Button)findViewById(R.id.login_button);
         mbtnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

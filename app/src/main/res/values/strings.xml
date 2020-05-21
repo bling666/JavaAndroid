@@ -96,4 +96,13 @@
     <string name="title_search">查词</string>
     <string name="title_upload">上传</string>
     <string name="upload_textarea_placeholder">请将您的文本复制粘贴到此处</string>
+    <string name="welcome">welcome</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="remember">记住密码</string>
+    <string name="login">登录</string>
+    <string name="login_notification">尚未注册？请点击注册</string>
+    <string name="signup">注册</string>
+    <string name="signup_notification">已经注册?请点击登录</string>
+    <string name="mine">我的</string>
 </resources>

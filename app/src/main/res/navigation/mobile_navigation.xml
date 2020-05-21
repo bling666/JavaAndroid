@@ -22,4 +22,9 @@
         android:name="com.project.myapplication.ui.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/navigation_mine"
+        android:name="com.project.myapplication.ui.MineFragment"
+        android:label="@string/mine"
+        tools:layout="@layout/fragment_mine" />
 </navigation>

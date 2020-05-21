@@ -34,7 +34,7 @@
         android:background="@drawable/stroke"
         android:layout_marginTop="15dp"/>
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/login_button"
         android:layout_below="@id/et_2"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
         />
     <TextView
         android:id="@+id/tv1"
-        android:layout_below="@id/btn_login"
+        android:layout_below="@id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.project.myapplication.R;
 import com.project.myapplication.ScrollingActivity;
+import com.project.myapplication.loginActivity;
 
 public class ReciteFragment extends Fragment {
 
