@@ -17,7 +17,7 @@
         android:layout_marginRight="16dp"
         android:autofillHints=""
         android:background="@drawable/stroke"
-        android:hint="@string/title_search"
+        android:hint="@string/title_upload"
         android:inputType="text"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"

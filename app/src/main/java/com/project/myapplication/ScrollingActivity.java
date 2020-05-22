@@ -1,5 +1,6 @@
 package com.project.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -162,7 +163,7 @@ public class ScrollingActivity extends AppCompatActivity {
                 if(numtsk==0){
                     ctobar.setTitle("no more word");
                 }
-                else if(know==0&&numtsk>0){
+                else if(know==0){
                     recite(s[i],"0");
                     know=1;
                     String trans=searchword(s[i]);
@@ -173,18 +174,32 @@ public class ScrollingActivity extends AppCompatActivity {
                     btyes.setText("NEXT");
                     txview.setText(trans);
                 }
-                else{
+                else if(know==1){
                     i+=1;
                     if(i>=numtsk){
-                        i=0;
-                        s=gettask();
-                        numtsk=s.length;
+                        btno.setText("NEW");
+                        btyes.setText("DONE");
+                        ctobar.setTitle("NO MORE");
+                        txview.setText("计划已完成");
+                        know=2;
                     }
+                    else {
+                        know = 0;
+                        btno.setText("NO");
+                        btyes.setText("YES");
+                        txview.setText("");
+                        ctobar.setTitle(s[i]);
+                    }
+                }
+                else{
                     know=0;
+                    i=0;
+                    s=gettask();
+                    numtsk=s.length;
                     btno.setText("NO");
                     btyes.setText("YES");
-                    txview.setText("");
                     ctobar.setTitle(s[i]);
+                    txview.setText("");
                 }
             }
         });
@@ -199,25 +214,38 @@ public class ScrollingActivity extends AppCompatActivity {
                     recite(s[i],"1");
                     i+=1;
                     if(i>=numtsk){
-                        i=0;
-                        s=gettask();
-                        numtsk=s.length;
+                        btno.setText("NEW");
+                        btyes.setText("DONE");
+                        ctobar.setTitle("NO MORE");
+                        txview.setText("计划已完成");
+                        know=2;
                     }
-                    know=0;
-                    btno.setText("NO");
-                    btyes.setText("YES");
-                    txview.setText("");
-                    ctobar.setTitle(s[i]);
+                    else {
+                        know = 0;
+                        btno.setText("NO");
+                        btyes.setText("YES");
+                        txview.setText("");
+                        ctobar.setTitle(s[i]);
+                    }
                 }
-                else{
+                else if(know==0){
                     i+=1;
                     if(i>=numtsk){
-                        i=0;
-                        s=gettask();
-                        numtsk=s.length;
+                        btno.setText("NEW");
+                        btyes.setText("DONE");
+                        txview.setText("计划已完成");
+                        ctobar.setTitle("NO MORE");
+                        know=2;
                     }
-                    txview.setText("");
-                    ctobar.setTitle(s[i]);
+                    else {
+                        txview.setText("");
+                        ctobar.setTitle(s[i]);
+                        know=0;
+                    }
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(),NavigationActivity.class);
+                    startActivity(intent);
                 }
             }
         });
