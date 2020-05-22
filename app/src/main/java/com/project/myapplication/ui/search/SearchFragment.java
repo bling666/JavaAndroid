@@ -48,6 +48,7 @@ public class SearchFragment extends Fragment {
             JSONObject jsonObj = new JSONObject(raw_result);
             JSONObject data = jsonObj.getJSONArray("data").getJSONObject(0);
             String translation = data.getString("translation");
+            translation.replace("\\n","\n");
             return translation;
 
         }
