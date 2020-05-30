@@ -46,7 +46,7 @@ public class MineFragment extends Fragment {
         button.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("login",MODE_PRIVATE);
+                final SharedPreferences sharedPreferences = getActivity().getSharedPreferences("login",MODE_PRIVATE);
                 String cookie = sharedPreferences.getString("sessionid","");
                 OkHttpClient okHttpClient = new okhttp3.OkHttpClient.Builder()
                         .connectTimeout(10, TimeUnit.SECONDS)
@@ -79,6 +79,9 @@ public class MineFragment extends Fragment {
                                 public void run() {
                                     if(status==1)
                                     {
+                                        SharedPreferences.Editor edit = sharedPreferences.edit();//编辑文件
+                                        edit.clear();
+                                        edit.apply();
                                         Intent intent = new Intent(getActivity(),loginActivity.class);
                                         startActivity(intent);
                                     }

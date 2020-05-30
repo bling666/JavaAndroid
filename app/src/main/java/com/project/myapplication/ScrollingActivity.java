@@ -1,6 +1,7 @@
 package com.project.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -40,8 +41,11 @@ public class ScrollingActivity extends AppCompatActivity {
     public Toolbar toolbar;
     public Button btyes;
     public String searchword(String s){
+        final SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
+        String cookie = sharedPreferences.getString("sessionid","");
         OkHttpClient okHttpClient = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
         final Request request = new Request.Builder()
+                .header("Cookie",cookie)
                 .url("http://39.102.62.210/api/getoneword?keyword="+s)
                 .get()
                 .build();
@@ -67,6 +71,8 @@ public class ScrollingActivity extends AppCompatActivity {
         return null;
     }
     public void recite(String s,String know){
+        final SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
+        String cookie = sharedPreferences.getString("sessionid","");
         OkHttpClient okHttpClient=new okhttp3.OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10,TimeUnit.SECONDS)
@@ -76,6 +82,7 @@ public class ScrollingActivity extends AppCompatActivity {
                 .add("operator",know)
                 .build();
         final Request request = new Request.Builder()
+                .header("Cookie",cookie)
                 .url("http://39.102.62.210/api/recite")//请求的url
                 .post(formBody)
                 .build();
@@ -95,8 +102,11 @@ public class ScrollingActivity extends AppCompatActivity {
         });
     }
     public String[] gettask(){
+        final SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
+        String cookie = sharedPreferences.getString("sessionid","");
         OkHttpClient okHttpClient = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
         final Request request = new Request.Builder()
+                .header("Cookie",cookie)
                 .url("http://39.102.62.210/api/getonetask?num="+"20")
                 .get()
                 .build();

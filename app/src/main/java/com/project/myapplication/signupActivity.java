@@ -32,10 +32,12 @@ public class signupActivity extends AppCompatActivity {
 
     private EditText etUserName;
     private EditText etPassword;
+    private EditText etValidatePassword;
     private Button btnLogin;
     private TextView twSignUp;
     private String username;
     private String password;
+    private String validatePassword;
     final String TAG = "test";
 
     private void request_signup() {
@@ -77,7 +79,7 @@ public class signupActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Toast.makeText(getApplicationContext(), show_message, Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), NavigationActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), loginActivity.class);
                                 startActivity(intent);
                             }
                         });
@@ -102,6 +104,7 @@ public class signupActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.signup_button);
         etUserName = findViewById(R.id.signup_username);
         etPassword = findViewById(R.id.signup_password);
+        etValidatePassword = findViewById(R.id.signup_password3);
         twSignUp = findViewById(R.id.signup_textView);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +112,16 @@ public class signupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 username = etUserName.getText().toString();
                 password = etPassword.getText().toString();
-               request_signup();
+                validatePassword = etValidatePassword.getText().toString();
+                if(password.length()<4)
+                {
+                    Toast.makeText(signupActivity.this,"您的密码过短，密码最少为4位",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(password.equals(validatePassword))
+                    request_signup();
+                else
+                    Toast.makeText(signupActivity.this,"两次输入密码不一致",Toast.LENGTH_LONG).show();
             }
         });
 

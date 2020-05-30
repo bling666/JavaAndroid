@@ -1,5 +1,6 @@
 package com.project.myapplication.ui.upload;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
@@ -26,12 +27,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class UploadFragment extends Fragment {
 
     private Button up;
     private EditText txt;
     String getstr;
     public void postup(String s){
+        final SharedPreferences sharedPreferences = getActivity().getSharedPreferences("login",MODE_PRIVATE);
+        String cookie = sharedPreferences.getString("sessionid","");
         OkHttpClient okHttpClient=new okhttp3.OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10,TimeUnit.SECONDS)
@@ -40,6 +45,7 @@ public class UploadFragment extends Fragment {
                 .add("text", s)
                 .build();
         final Request request = new Request.Builder()
+                .header("Cookie",cookie)
                 .url("http://39.102.62.210/api/upload")//请求的url
                 .post(formBody)
                 .build();

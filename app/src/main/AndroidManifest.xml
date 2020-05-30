@@ -38,9 +38,6 @@
         <activity android:name=".signupActivity" android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".editactivity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".buttonActivity" />
     </application>
 
 </manifest>
