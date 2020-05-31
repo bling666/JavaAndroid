@@ -150,8 +150,7 @@ public class ScrollingActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         s=gettask();
-        numtsk=s.length;
-        i=0;
+
         setContentView(R.layout.activity_scrolling);
         txview=(TextView) findViewById(R.id.wordtrans);
         //toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -159,18 +158,33 @@ public class ScrollingActivity extends AppCompatActivity {
         btno=(Button)findViewById(R.id.button);
         btyes=(Button)findViewById(R.id.button3);
         setSupportActionBar(toolbar);
-        txview.setText("");
-        String p="no more word";
-        if(numtsk>0){
-            p=s[0];
+        if(s==null){
+            know=-1;
+            btno.setText("BACK");
+            btyes.setText("BACK");
+            ctobar.setTitle("无计划");
+            txview.setText("请上传单词");
         }
-        know=0;
-        ctobar.setTitle(p);
+        else{
+            numtsk = s.length;
+            i = 0;
+            txview.setText("");
+            String p = "no more word";
+            if (numtsk > 0) {
+                p = s[0];
+            }
+            know = 0;
+            ctobar.setTitle(p);
+        }
         btno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println(know);
-                if(numtsk==0){
+                if(know==-1){
+                    Intent intent = new Intent(getApplicationContext(),NavigationActivity.class);
+                    startActivity(intent);
+                }
+                else if(numtsk==0){
                     ctobar.setTitle("no more word");
                 }
                 else if(know==0){
@@ -217,7 +231,11 @@ public class ScrollingActivity extends AppCompatActivity {
         btyes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(numtsk==0){
+                if(know==-1){
+                    Intent intent = new Intent(getApplicationContext(),NavigationActivity.class);
+                    startActivity(intent);
+                }
+                else if(numtsk==0){
                     ctobar.setTitle("no more word");
                 }
                 else if(know==1){

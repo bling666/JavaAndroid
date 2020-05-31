@@ -48,8 +48,8 @@ public class SearchFragment extends Fragment {
             JSONObject jsonObj = new JSONObject(raw_result);
             JSONObject data = jsonObj.getJSONArray("data").getJSONObject(0);
             String translation = data.getString("translation");
-            translation.replace("\\n","\n");
-            return translation;
+
+            return translation.replace("\\n","\n");
 
         }
         catch (JSONException e)
@@ -79,7 +79,6 @@ public class SearchFragment extends Fragment {
                 getstr = myword.getText().toString();
                 String res = searchword(getstr);
                 System.out.println(res);
-
                 mtv.setText(res);
                 Toast.makeText(getActivity(), "输入成功", Toast.LENGTH_LONG).show();
             }
