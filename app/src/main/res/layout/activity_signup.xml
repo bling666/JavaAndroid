@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/rectangle_edittext">
 
         <ImageView
@@ -32,18 +32,20 @@
             android:layout_width="1dip"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/iv_userIconName2"
-            android:background="@color/colorCursor"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/iv_userIconName2" />
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/iv_userIconName2"
+            android:layout_toRightOf="@id/iv_userIconName2"
+            android:background="@color/colorCursor" />
 
         <EditText
             android:id="@+id/signup_username"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/viewName2"
             android:layout_toRightOf="@id/viewName2"
             android:background="@null"
             android:drawablePadding="5dp"
@@ -51,21 +53,19 @@
             android:hint="@string/username"
             android:textColorHint="@color/colorCursor"
             android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="15sp"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/viewName2"  />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/iv_unameClear2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:src="@mipmap/ic_backspace_grey600_24dp"
-            android:visibility="invisible"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp" />
+            android:visibility="invisible" />
 
     </RelativeLayout>
 
