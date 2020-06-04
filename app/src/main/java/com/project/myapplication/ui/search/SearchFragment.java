@@ -82,20 +82,25 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getstr = myword.getText().toString();
+                int flag=0;
                 String[] res = searchword(getstr);
-                String out=res[0]+"\n";
-                if(res[1].length()>0){
-                    out+="音标\n"+res[1]+"\n";
+                String out="";
+                if(res!=null) {
+                    flag=1;
+                    out = res[0] + "\n";
+                    if (res[1].length() > 0) {
+                        out += "音标\n" + res[1] + "\n";
+                    }
+                    if (res[2].length() > 0) {
+                        out += "释义\n" + res[2] + "\n";
+                    }
+                    if (res[3].length() > 0) {
+                        out += "definition:\n" + res[3] + "\n";
+                    }
+                    System.out.println(out);
                 }
-                if(res[2].length()>0){
-                    out+="释义\n"+res[2]+"\n";
-                }
-                if(res[3].length()>0){
-                    out+="definition:\n"+res[3]+"\n";
-                }
-                System.out.println(out);
                 mtv.setText("未找到");
-                if(res[0].length()>0)
+                if(flag==1&&res[0].length()>0)
                     mtv.setText(out);
                 Toast.makeText(getActivity(), "输入成功", Toast.LENGTH_LONG).show();
             }
