@@ -40,12 +40,9 @@ public class ScrollingActivity extends AppCompatActivity {
     public Button btno;
     public Toolbar toolbar;
     public Button btyes;
-    public String searchword(String s){
-        final SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
-        String cookie = sharedPreferences.getString("sessionid","");
+    public String[] searchword(String s){
         OkHttpClient okHttpClient = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
         final Request request = new Request.Builder()
-                .header("Cookie",cookie)
                 .url("http://39.102.62.210/api/getoneword?keyword="+s)
                 .get()
                 .build();
@@ -56,7 +53,13 @@ public class ScrollingActivity extends AppCompatActivity {
             JSONObject jsonObj = new JSONObject(raw_result);
             JSONObject data = jsonObj.getJSONArray("data").getJSONObject(0);
             String translation = data.getString("translation");
-            return translation;
+            String[] res=new String[5];
+            res[0]=data.getString("word");
+            res[1]=data.getString("phonetic");
+            res[2]=translation.replace("\\n","\n");
+            res[3]=data.getString("definition").replace("\\n","\n");
+            res[4]=data.getString("exchange");
+            return res;
 
         }
         catch (JSONException e)
@@ -190,13 +193,25 @@ public class ScrollingActivity extends AppCompatActivity {
                 else if(know==0){
                     recite(s[i],"0");
                     know=1;
-                    String trans=searchword(s[i]);
-                    trans=trans.replace("\\n","\n");
+                    String[] res = searchword(s[i]);
+                    String out=res[0]+"\n";
+                    if(res[1].length()>0){
+                        out+="音标:\n"+res[1]+"\n\n";
+                    }
+                    if(res[2].length()>0){
+                        out+="释义:\n"+res[2]+"\n\n";
+                    }
+                    if(res[3].length()>0){
+                        out+="definition:\n"+res[3]+"\n\n";
+                    }
+                    if(res[4].length()>0){
+                        out+="变换:\n"+res[4]+"\n\n";
+                    }
                     String st=s[i];
                     ctobar.setTitle(st);
                     btno.setText("NEXT");
                     btyes.setText("NEXT");
-                    txview.setText(trans);
+                    txview.setText(out);
                 }
                 else if(know==1){
                     i+=1;

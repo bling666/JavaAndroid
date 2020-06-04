@@ -6,16 +6,14 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ScrollingActivity"
-    tools:showIn="@layout/activity_scrolling">
+    tools:showIn="@layout/fragment_search">
 
     <TextView
-        android:id="@+id/wordtrans"
+        android:id="@+id/wordres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:layout_margin="28dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:text="@string/large_text" />
+        android:text="" />
 
 </androidx.core.widget.NestedScrollView>
