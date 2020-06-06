@@ -254,7 +254,6 @@ public class ScrollingActivity extends AppCompatActivity {
                     ctobar.setTitle("no more word");
                 }
                 else if(know==1){
-                    recite(s[i],"1");
                     i+=1;
                     if(i>=numtsk){
                         btno.setText("NEW");
@@ -272,6 +271,7 @@ public class ScrollingActivity extends AppCompatActivity {
                     }
                 }
                 else if(know==0){
+                    recite(s[i],"1");
                     i+=1;
                     if(i>=numtsk){
                         btno.setText("NEW");
